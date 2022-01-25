@@ -9,5 +9,6 @@ namespace DataAcessLayer.Abstract
 {
     public interface IBlogDal : IGenericDal<Blog>
     {
+        List<Blog> GetListWithCategory(); //Bu method sadece Bloklara özel olduğu için burada tanımlıyorum.Bunu EfBlogRep' de implemente etmem gerekir.
     }
 }
