@@ -12,10 +12,11 @@
             <!--left-->
             <div class="left-blog-info-w3layouts-agileits text-left">
                 <div class="row">
+                     
                     @foreach (var item in Model)
                     {
-
-
+                        
+                       
                     <div class="col-lg-4 card">
                         <a href="single.html">
                             <img src="@item.BlockImage" class="card-img-top img-fluid" alt="">
@@ -24,7 +25,7 @@
                             <ul class="blog-icons my-4">
                                 <li>
                                     <a href="#">
-                                        <i class="far fa-calendar-alt"></i> @item.BlogCreateDate
+                                        <i class="far fa-calendar-alt"></i> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
                                     </a>
                                 </li>
                                 <li class="mx-2">
@@ -40,10 +41,10 @@
 
                             </ul>
                             <h5 class="card-title">
-                                <a href="single.html">@item.BlogTitle</a>
+                                <a href="/Blog/BlogReadAll/@item.BlogID">@item.BlogTitle</a>
                             </h5>
-                            <p class="card-text mb-3">@item.BlogContent .. </p>
-                            <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                            <p class="card-text mb-3">@(item.BlogContent.Length > 150 ? item.BlogContent.Substring(0, item.BlogContent.Substring(0,155).LastIndexOf(" "))+"..." : item.BlogContent +"...")</p>
+                            <a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
                         </div>
                     </div>   
                     }
